@@ -7,6 +7,8 @@ import java.time.Period;
 
 @Entity
 public class Member {
+    @Id
+    private Short id;
     private String name;
     private String colorCode;
     private localDate bornDate;
@@ -31,11 +33,6 @@ public class Member {
 
     public void setColorCode(String colorCode) {
         this.colorCode = colorCode;
-    }
-
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public localDate getBornDate() {

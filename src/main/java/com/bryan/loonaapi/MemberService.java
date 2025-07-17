@@ -7,6 +7,11 @@ import java.time.LocalDate;
 
 @Service
 public class MemberService {
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
     public List<Member> getAllMembers() {
         return List.of(
                 new Member("HeeJin", "FF4EB1", LocalDate.of(2000, 10, 19)),
@@ -22,5 +27,9 @@ public class MemberService {
                 new Member("GoWon", "FFB7D5", LocalDate.of(2000, 11, 19)),
                 new Member("HyeJu", "FFB7D5", LocalDate.of(2001, 11, 13))
         );
+    }
+
+    public Optional<Member> getMember(Integer id) {
+        return memberRepository.findById(id);
     }
 }
